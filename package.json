@@ -4,8 +4,8 @@
   "description": "A template for a MERN-Stack Web App",
   "main": "index.js",
   "scripts": {
-    "preinstall": "cd server && npm install",
-    "install": "cd client && npm install",
+    "preiinit": "cd server && npm ci",
+    "init": "npm ci && cd client && npm ci",
     "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\""
