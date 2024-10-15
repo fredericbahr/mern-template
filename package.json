@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/fredericbahr/mern-template#readme",
   "dependencies": {
-    "concurrently": "^7.5.0"
+    "concurrently": "^9.0.1"
   }
 }
