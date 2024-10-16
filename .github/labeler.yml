@@ -1,0 +1,19 @@
+# Add 'test' label to any change to '*.spec.ts' or '*.test.ts' files
+Test:
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.spec.ts", "**/*.test.ts"]
+
+# Add 'backend' label to any change to files within the server dir
+Backend:
+  - changed-files:
+      - any-glob-to-any-file: ["**/server/**/*", "**/database/**/*"]
+
+# Add 'frontend' label to any change to files within the client dir
+Frontend:
+  - changed-files:
+      - any-glob-to-any-file: ["**/client/**/*", "**/ui-*/**/*"]
+
+# Add 'marketing' label to any change to files within the website dir
+Marketing:
+  - changed-files:
+      - any-glob-to-any-file: ["**/website/**/*"]

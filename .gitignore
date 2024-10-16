@@ -1,2 +1,33 @@
+# Standard
 node_modules
 */**/coverage
+*/**/node_modules
+*/**/dist
+coverage
+.nyc_output
+
+# Environment
+*.env
+!example.env
+
+# E2E
+
+e2e-reports
+e2e-results
+.auth
+
+
+# Turborepo
+.turbo
+
+
+# Logs
+logs
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+/test-results/
+/playwright-report/
+/playwright/.cache/

@@ -1,0 +1,7 @@
+**/coverage
+**/dist
+**/e2e-test-report
+**/node_modules
+**/package-lock.json
+**/package.json
+coverage

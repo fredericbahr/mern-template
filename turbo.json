@@ -1,0 +1,59 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build", "db:generate"],
+      "cache": true
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "cache": false
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": [],
+      "cache": true
+    },
+    "e2e": {
+      "outputs": ["e2e-reports/**", "e2e-results/**"],
+      "dependsOn": [],
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "lint:fix": {
+      "cache": false
+    },
+    "prettier": {
+      "cache": true
+    },
+    "prettier:fix": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "db:generate": {
+      "dependsOn": ["^db:generate"],
+      "cache": false
+    },
+    "db:push": {
+      "dependsOn": ["db:generate"],
+      "cache": false
+    },
+    "db:seed": {
+      "dependsOn": ["db:teardown"],
+      "cache": false
+    },
+    "db:teardown": {
+      "dependsOn": ["db:push"],
+      "cache": false
+    }
+  }
+}

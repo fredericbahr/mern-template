@@ -1,0 +1,7 @@
+{
+  "name": "config-prettier",
+  "version": "2.15.0",
+  "license": "UNLICENSED",
+  "author": "Frederic Bahr",
+  "main": ".prettierrc.json"
+}

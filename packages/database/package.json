@@ -1,0 +1,37 @@
+{
+  "name": "database",
+  "version": "2.15.0",
+  "license": "UNLICENSED",
+  "author": "Frederic Bahr",
+  "main": "./dist/src/index.js",
+  "module": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf .turbo node_modules dist",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push --skip-generate",
+    "db:seed": "npx tsx src/seed.ts",
+    "db:teardown": "npx tsx src/teardown.ts",
+    "prebuild": "npm run db:generate",
+    "predev": "npm run db:generate"
+  },
+  "devDependencies": {
+    "@prisma/extension-optimize": "^0.10.1",
+    "config-ts": "*",
+    "jest": "^29.7.0",
+    "prisma": "^5.20.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "jest-mock-extended": "^3.0.7"
+  },
+  "volta": {
+    "node": "20.18.0"
+  }
+}
