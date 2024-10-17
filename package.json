@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "A template for a MERN-Stack Web App",
   "main": "index.js",
-  "scripts": {
-    "init": "./bin/init.sh",
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm run dev",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+  "author": "Frederic Bahr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fredericbahr/mern-template/issues"
   },
+  "homepage": "https://github.com/fredericbahr/mern-template#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fredericbahr/mern-template.git"
@@ -17,13 +17,49 @@
     "MERN",
     "Template"
   ],
-  "author": "Frederic Bahr",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fredericbahr/mern-template/issues"
+  "scripts": {
+    "init": "npm ci && turbo run build",
+    "reinit": "npm install && turbo run build",
+    "clean": "turbo run clean",
+    "build": "turbo run build",
+    "dev": "turbo run dev --concurrency 3",
+    "test": "turbo run test --concurrency 1 && ./scripts/merge-coverage-reports.sh",
+    "prettier": "turbo run prettier",
+    "prettier:fix": "turbo run prettier:fix",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix --concurrency=1",
+    "prepare": "husky"
   },
-  "homepage": "https://github.com/fredericbahr/mern-template#readme",
-  "dependencies": {
-    "concurrently": "^9.0.1"
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "config/*"
+  ],
+  "lint-staged": {
+    "apps/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "packages/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "prisma": {
+    "schema": "packages/database/prisma/schema.prisma"
+  },
+  "volta": {
+    "node": "20.18.0"
+  },
+  "packageManager": "npm@10.8.2",
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "turbo": "^2.1.3"
   }
 }
