@@ -56,7 +56,17 @@ installDependencies() {
   npm install
 }
 
+runAuditFix() {
+   for workspace in $workspaces; do
+      # Get the base directory of the npm project
+    base_dir=$(npm prefix)
+    cd "$base_dir/$workspace"
+    npm audit fix
+  done
+}
+
 findPackagePaths
 updateDependencies
 updateRootDependencies
 installDependencies
+runAuditFix
