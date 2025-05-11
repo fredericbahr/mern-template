@@ -10,10 +10,10 @@
   ],
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.5.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "ts-jest": "^29.2.5"
+    "ts-jest": "^29.3.2"
   },
   "devDependencies": {
     "jest-css-modules-transform": "^4.4.2"
